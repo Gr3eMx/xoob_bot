@@ -5,16 +5,32 @@ import socketio
 import logging
 from dotenv import load_dotenv
 from auth import auth_user
+from logging.handlers import RotatingFileHandler
 
 load_dotenv()
 
 url = os.getenv("URL")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+file_handler = logging.handlers.RotatingFileHandler(
+    'mining_client.log',
+    maxBytes=5 * 1024 * 1024,
+    backupCount=1,
+    encoding='utf-8'
+)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 
 class MiningClient:
     def __init__(self, url):
