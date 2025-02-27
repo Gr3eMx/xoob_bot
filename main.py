@@ -67,7 +67,7 @@ class MiningClient:
             is_mining = data.get("isMining", False)
             energy = data.get("energy", 0)
             logger.info(data)
-            if not is_mining and energy > 6000:
+            if not is_mining and energy > 100:
                 logger.info('Повторная отправка флага isMining')
                 await self.sio.emit("startMining", {})
 
