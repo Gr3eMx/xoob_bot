@@ -38,5 +38,6 @@ python main.py
 ```sh
 python main.py
 ```
+![Repo Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/helloWat3r/xoob_bot&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=views&edge_flat=false)
 
 
