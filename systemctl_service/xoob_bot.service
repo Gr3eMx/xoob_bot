@@ -1,0 +1,13 @@
+[Unit]
+Description=Xoob bot service
+After=network.target
+
+[Service]
+ExecStart=/home/xoob_bot/venv/bin/python3 /home/xoob_bot/main.py
+Restart=always
+RestartSec=5
+WorkingDirectory=/home/xoob_bot/
+Environment="PATH=/home/xoob_bot/venv/bin/python3"
+
+[Install]
+WantedBy=multi-user.target
